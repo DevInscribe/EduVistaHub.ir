@@ -62,3 +62,17 @@ img {
 .navbar-toggler{
     background-color:#e0e0e0!important;
 }
+
+#fp-text{
+    font-size: 12px;
+    color: #ccc;
+}
+
+#fp-input , r-input{
+    color: #232323!important;
+}
+
+#rp-form input{
+    color: #232323!important;
+
+}

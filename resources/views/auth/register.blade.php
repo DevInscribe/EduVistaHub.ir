@@ -86,7 +86,7 @@
 
                         <div class="row mb-0"> 
                             <div class="col-md-10 offset-md-4 mx-auto">
-                                <a href="#" type="submit" class="btn btn-danger w-100 ">
+                                <a href="{{route('auth.google')}}" type="submit" class="btn btn-danger w-100 ">
                                   با گوگل وارد شويد
                                 </a>
                             </div>
