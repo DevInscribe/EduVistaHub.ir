@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Auth\Request;
 use App\Providers\RouteServiceProvider;
 use App\Rules;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -39,11 +40,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
     
-    protected function validateLogin(Request $request){
-        $request->validate([
-            $this->username()=>'required|string',
-            'password'=> 'required|string',
-            'g-recaptcha-response'=> ['required',new Recaptcha()]
-        ]);
-    }
+    // protected function validateLogin(Request $request){
+    //     $request->validate([
+    //         $this->username()=>'required|string',
+    //         'password'=> 'required|string',
+    //         'g-recaptcha-response'=> ['required',new Recaptcha()]
+    //     ]);
+    // }
 }

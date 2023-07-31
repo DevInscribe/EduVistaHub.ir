@@ -19,17 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', [AdminController::class, 'index']);
-
-
-
-
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
- 
+// auth
+Auth::routes();
 Route::get('/auth/google',[GoogleController::class,'redirect'])->name('auth.google');
- 
 Route::get('/auth/google/callback',[GoogleController::class,'callback']);
