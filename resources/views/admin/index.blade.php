@@ -4,7 +4,7 @@
 
 
 <div class="block-header">
-                <h2>DASHBOARD</h2>
+                <h2>داشبورد</h2>
             </div>
 
             <!-- Widgets -->
