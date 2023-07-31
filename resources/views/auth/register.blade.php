@@ -77,6 +77,21 @@
                                 </button>
                             </div>
                         </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 position-relative">
+                                <p class="mt-4 text-center">يا</p>
+                            </div>
+                        </div>
+
+                        <div class="row mb-0"> 
+                            <div class="col-md-10 offset-md-4 mx-auto">
+                                <a href="#" type="submit" class="btn btn-danger w-100 ">
+                                  با گوگل وارد شويد
+                                </a>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>
