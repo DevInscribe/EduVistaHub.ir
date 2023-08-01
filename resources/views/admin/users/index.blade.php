@@ -6,6 +6,9 @@
                     <div class="card">
                         <div class="header">
                             <h2>کاربران</h2>
+                            <div id="add_new_user_section" class="d-flex justify-content-end">
+                                <a href="{{route('admin.users.create')}}" class="btn btn-warning d-inline-block">افزودن کاربر جديد</a>
+                            </div>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
