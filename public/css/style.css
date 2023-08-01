@@ -2415,6 +2415,7 @@ section.content {
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
   -webkit-transition: 0.5s;
+  color: #f5f5f5;
   transition: 0.5s; }
 
 /* Dashboard =================================== */
@@ -2832,7 +2833,7 @@ section.content {
 
 /* Card ======================================== */
 .card {
-  background: #fff;
+  background: #f7f7f7;
   min-height: 50px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -8258,4 +8259,9 @@ html.ie11 .bs-searchbox .form-control {
 
 .nav > li > a:hover, .nav > li > a:active, .nav > li > a:focus{
   background-color: #232323;
+}
+
+table * {
+  direction:rtl;
+  text-align: right;
 }

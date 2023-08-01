@@ -305,7 +305,7 @@
                     </li>
                     <li class="header">دسترسي ها</li>
                     <li>
-                        <a href="pages/helper-classes.html">
+                        <a href="/admin/users">
                             <i class="material-icons">group</i>
                             <span class="font-vazir">کاربران</span>
                         </a>
