@@ -14,9 +14,24 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->boolean('is_superuser')->default(0);
+            $table->boolean('is_staff')->default(0);
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('img')->nullable();
+            $table->string('username')->nullable();
+            $table->string('birth_day')->nullable();
+            $table->string('birth_year')->nullable();
+            $table->string('birth_month')->nullable();
+            $table->string('title_job')->nullable();
+            $table->string('about_us')->nullable();
+            $table->string('website')->nullable();
+            $table->string('telegram_link')->nullable();
+            $table->string('linkedin_link')->nullable();
+            $table->string('twitter_link')->nullable();
+            $table->string('instagram_link')->nullable();
+            $table->string('facebook_link')->nullable();
+            // $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
