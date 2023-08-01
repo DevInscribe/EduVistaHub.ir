@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -48,7 +49,8 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
@@ -56,7 +58,25 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+       $data = $request->validate([
+        'name' => 'required',
+        'email' => [
+            'required',
+            Rule::unique('users')->ignore($id)
+        ],
+       ]);
+       if(!is_null($request->password)){
+           $request->validate([
+            'password' => ['required',"string","min:8"],
+           ]);
+           $data['password'] = $request->password;
+           
+       }
+       $user = User::find($id);
+       $user-> update($data);
+       $user-> save();
+
+       return redirect(route('admin.users.index'));
     }
 
     /**

@@ -29,7 +29,7 @@
                                             <td>{{$user->email}}</td>
                                             <td>
                                                 <a class="btn btn-outline-primary btn-sm fw-bold" href="#">حذف</a>
-                                                <a class="btn btn-primary btn-sm" href="#">ويرايش</a>
+                                                <a class="btn btn-primary btn-sm" href="{{route('admin.users.edit',$user->id)}}">ويرايش</a>
                                             </td>
                                         </tr>
                                         @endforeach

@@ -8286,3 +8286,7 @@ table * {
 ul li {
   list-style: none!important;
 }
+
+#eu-admin-un{
+  font-weight: bold;
+}
