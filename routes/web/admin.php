@@ -17,5 +17,5 @@ Route::get('/users/create',[UserController::class,'create'])-> name("admin.users
 Route::post('/users/store',[UserController::class,'store'])-> name("admin.users.store");
 Route::get('/users/{id}/edit/',[UserController::class,'edit'])-> name("admin.users.edit");
 Route::patch('/users/{id}/update',[UserController::class,'update'])-> name("admin.users.update");
-
+Route::delete('/users/{id}/destroy',[UserController::class,'destroy'])-> name('admin.users.destroy');
 

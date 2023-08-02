@@ -4623,6 +4623,10 @@ section.content {
 .table thead tr th {
   padding: 10px;
   border-bottom: 1px solid #eee; }
+  
+  .table tr form{
+  display: inline-block;
+  }
 
 .table-bordered {
   border-top: 1px solid #eee; }

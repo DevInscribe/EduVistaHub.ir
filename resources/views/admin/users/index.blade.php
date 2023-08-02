@@ -27,8 +27,12 @@
                                             <td>{{$user->id}}</td>
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
-                                            <td>
-                                                <a class="btn btn-outline-primary btn-sm fw-bold" href="#">حذف</a>
+                                            <td class="d-flex">
+                                                <form method="post" action="{{route('admin.users.destroy',$user->id)}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class='btn btn-outline-primary btn-sm fw-bold'>حذف</button>
+                                                </form>
                                                 <a class="btn btn-primary btn-sm" href="{{route('admin.users.edit',$user->id)}}">ويرايش</a>
                                             </td>
                                         </tr>
