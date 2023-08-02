@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\RoleController;
 
 
 
@@ -12,7 +13,6 @@ Route::get('/', [AdminController::class, 'index']);
 
 
 Route::resource('/users','App\Http\Controllers\Admin\UserController');
-
 Route::get('/users',[UserController::class,'index'])-> name("admin.users.index");
 Route::get('/users/create',[UserController::class,'create'])-> name("admin.users.create");
 Route::post('/users/store',[UserController::class,'store'])-> name("admin.users.store");
@@ -28,3 +28,12 @@ Route::get('/permissions/{id}/edit/',[PermissionController::class,'edit'])-> nam
 Route::get('/permissions/create',[PermissionController::class,'create'])-> name("admin.permissions.create");
 Route::post('/permissions/store',[PermissionController::class,'store'])-> name("admin.permissions.store");
 Route::patch('/permissions/{id}/update',[PermissionController::class,'update'])-> name("admin.permissions.update");
+
+
+Route::resource('/roles','App\Http\Controllers\Admin\RoleController');
+Route::get('/roles',[RoleController::class,'index'])-> name("admin.roles.index");
+Route::delete('/roles/{id}/destroy',[RoleController::class,'destroy'])-> name('admin.roles.destroy');
+Route::get('/roles/{id}/edit/',[RoleController::class,'edit'])-> name("admin.roles.edit");
+Route::get('/roles/create',[RoleController::class,'create'])-> name("admin.roles.create");
+Route::post('/roles/store',[RoleController::class,'store'])-> name("admin.roles.store");
+Route::patch('/roles/{id}/update',[RoleController::class,'update'])-> name("admin.roles.update");

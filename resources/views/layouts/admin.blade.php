@@ -159,12 +159,12 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="javascript:void(0);">
+                                <a href="/admin/roles">
                                     <span class="font-vazir">تمام نقش ها</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);">
+                                <a href="/admin/roles/create">
                                     <span class="font-vazir">افزودن نقش جديد</span>
                                 </a>
                             </li>

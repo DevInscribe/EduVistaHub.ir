@@ -8270,23 +8270,28 @@ table * {
   text-align: right;
 }
 #add_new_user_section,
-#add_new_permission_section{
+#add_new_permission_section,
+#add_new_role_section{
   display: flex;
   justify-content: flex-end;
 }
 
-#nu_admin_form , #np_admin_form{
+#nu_admin_form,
+#np_admin_form,
+#nr_admin_form{
   width: 40%;
   margin: 40px auto;
   color: #232323;
 }
 
 #nu_admin_form button,
-#np_admin_form button{
+#np_admin_form button,
+#nr_admin_form button{
   margin: 20px 0 30px 0;
 }
 #nu_admin_form label,
-#np_admin_form label{
+#np_admin_form label,
+#nr_admin_form label{
   margin: 15px 0;
 }
 
