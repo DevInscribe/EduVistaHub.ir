@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Permission;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -59,17 +59,32 @@ class PermissionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Permission $permission)
+    public function edit(string $id)
     {
-        //
+        $permission = Permission::find($id);
+        return view('admin.permissions.edit', compact('permission'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Permission $permission)
+    public function update(Request $request, string $id)
     {
-        //
+         $data = $request->validate([
+            'name' => [
+                'required',
+                'string',
+            ],
+            'label'=> [
+                'required',
+                'string',
+            ],
+           ]);
+           $permission = Permission::find($id);
+           $permission->update($data);
+           $permission->save();
+
+           return redirect(route('admin.permissions.index'));
     }
 
     /**
@@ -79,6 +94,7 @@ class PermissionController extends Controller
     {
         $permission = Permission::find($id);
         $permission-> delete();
+
         return redirect(route('admin.permissions.index'));
     }
 }

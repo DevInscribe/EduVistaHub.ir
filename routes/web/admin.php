@@ -27,3 +27,4 @@ Route::delete('/permissions/{id}/destroy',[PermissionController::class,'destroy'
 Route::get('/permissions/{id}/edit/',[PermissionController::class,'edit'])-> name("admin.permissions.edit");
 Route::get('/permissions/create',[PermissionController::class,'create'])-> name("admin.permissions.create");
 Route::post('/permissions/store',[PermissionController::class,'store'])-> name("admin.permissions.store");
+Route::patch('/permissions/{id}/update',[PermissionController::class,'update'])-> name("admin.permissions.update");
