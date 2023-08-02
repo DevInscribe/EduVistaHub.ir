@@ -117,11 +117,41 @@
                     </li>
                     <li class="header">دسترسي ها</li>
                     <li>
-                        <a href="/admin/users">
+                        <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
                             <span class="font-vazir">کاربران</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="/admin/users">
+                                    <span class="font-vazir">تمام کاربران</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/admin/users/create">
+                                    <span class="font-vazir">افزودن کاربر جديد</span>
+                                </a>
+                            </li>
+                        </ul>
                   </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">handshake</i>
+                            <span class="font-vazir">دسترسي ها</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="/admin/permissions">
+                                    <span class="font-vazir">تمام دسترسي ها</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/admin/permissions/create">
+                                    <span class="font-vazir">افزودن دسترسي جديد</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">handshake</i>

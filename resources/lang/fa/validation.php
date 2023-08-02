@@ -139,5 +139,6 @@ return array(
         "tags" => "تگ",
         "comment" => "کامنت",
         "number " => "عدد",
+        "lable"=> "توضيحات"
     ),
 );

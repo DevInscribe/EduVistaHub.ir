@@ -1,6 +1,8 @@
 <?php
-
 namespace App\Models;
+
+use App\Models\Permission;
+use App\Models\Role;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -73,4 +75,24 @@ class User extends Authenticatable
         $this -> attributes['password'] = bcrypt($value);
         
     }
+
+    public function roles(){
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function permissions(){
+        return $this->belongsToMany(Permission::class);
+    }
+
+    public function hasRole($roles){
+        return !! $roles->intersect($this->roles)->all();
+
+    }
+    public function hasPermission($permission){
+
+        return $this->permissions->contains('name',$permission->name) || $this->hasRole($permission->roles);
+    }
+
+
+
 }
