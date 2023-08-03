@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\User\PermissionController as UserPermissionContro
 Route::get('/', [AdminController::class, 'index']);
 
 
-Route::resource('/users','App\Http\Controllers\Admin\UserController');
+Route::resource('/users','App\Http\Controllers\Admin\User\UserController');
 Route::get('/users',[UserController::class,'index'])-> name("admin.users.index");
 Route::get('/users/create',[UserController::class,'create'])-> name("admin.users.create");
 Route::post('/users/store',[UserController::class,'store'])-> name("admin.users.store");
