@@ -8302,3 +8302,18 @@ ul li {
 #eu-admin-un{
   font-weight: bold;
 }
+
+#permission-select-wrapp{
+  display: flex;
+  flex-direction: column;
+}
+#permission-select-wrapp select{
+  width: 100%;
+}
+#permission-select-wrapp .dropdown-toggle{
+  display: none;
+}
+.bootstrap-select{
+  border: none!important;
+  outline: 0;
+}

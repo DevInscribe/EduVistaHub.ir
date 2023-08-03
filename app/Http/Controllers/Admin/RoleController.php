@@ -31,7 +31,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'name' => [
                 'required',
                 'string',
@@ -42,9 +42,16 @@ class RoleController extends Controller
                 'string',
                 Rule::unique('roles')->ignore($request->label)
             ],
+            'permissions'=>[
+                'array',
+                'required'
+            ]
             // 'g-recaptcha-response'=> ['required',new Recaptcha()]
         ]);
-        Role::create($request->all());
+
+        $role = Role::create($data);
+        $role->permissions()->sync($data['permissions']);
+
         return redirect(route('admin.roles.index'));
     }
 
@@ -79,9 +86,15 @@ class RoleController extends Controller
                 'required',
                 'string',
             ],
+            'permissions'=>[
+                'array',
+                'required'
+            ]
            ]);
+
            $role = Role::find($id);
            $role->update($data);
+           $role->permissions()->sync($data['permissions']);
            $role->save();
 
            return redirect(route('admin.roles.index'));

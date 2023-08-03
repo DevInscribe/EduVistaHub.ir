@@ -27,6 +27,15 @@
                                     <div class="mb-3">
                                         <label for="cnr-input-label" class="form-label">توضيح دسترسي</label>
                                         <input type="text" name="label" class="form-control" id="cnr-input-label"  value="{{old('label')}}" placeholder="ليبل خود را وارد کنيد">
+                                    </div>      
+
+                                    <div id="permission-select-wrapp" class="mb-3">
+                                        <label for="permissions" class="form-label"> دسترسي ها</label>
+                                        <select class="form-select" name="permissions[]" id="permissions-select" multiple >
+                                            @foreach (App\Models\Permission::all() as $permission)
+                                                <option value="{{$permission->id}}">{{$permission->name}} - {{$permission->label}}</option>
+                                            @endforeach
+                                        </select> 
                                     </div>                                   
 
                                     <button type="submit" class="btn btn-primary mb-5">ايجاد نقش جديد</button>

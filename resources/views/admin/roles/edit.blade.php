@@ -28,6 +28,14 @@
                                         <input type="text" name="label" class="form-control" id="cnr-input-label"  value="{{$role->label}}" placeholder="توضيحات نقش خود را وارد کنيد">
                                     </div>
 
+                                    <div id="permission-select-wrapp" class="mb-3">
+                                        <label for="permissions" class="form-label"> دسترسي ها</label>
+                                        <select class="form-select" name="permissions[]" id="permissions-select" multiple >
+                                            @foreach (App\Models\Permission::all() as $permission)
+                                                <option value="{{$permission->id}}" {{in_array($permission->id,$role->permissions->pluck('id')->toArray()) ? 'selected' : ''}}>{{$permission->name}} - {{$permission->label}}</option>
+                                            @endforeach
+                                        </select> 
+                                    </div>  
                                 
                                     <button type="submit" class="btn btn-primary mb-5">به روز رساني نقش</button>
                             </form>
@@ -35,7 +43,4 @@
                     </div>
                 </div>
             </div>
-
-
-
 @endsection

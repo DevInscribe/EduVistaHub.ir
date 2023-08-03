@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Auth\Request;
 use App\Providers\RouteServiceProvider;
 use App\Rules;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+// use App\Http\Controllers\Auth\Request;
 
 class LoginController extends Controller
 {
