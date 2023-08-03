@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\ProductController';
 use App\Http\Controllers\Admin\User\PermissionController as UserPermissionController;
 
 
@@ -42,3 +43,6 @@ Route::get('/roles/create',[RoleController::class,'create'])-> name("admin.roles
 Route::post('/roles/store',[RoleController::class,'store'])-> name("admin.roles.store");
 Route::patch('/roles/{id}/update',[RoleController::class,'update'])-> name("admin.roles.update");
 
+// products
+Route::resource('/products','App\Http\Controllers\Admin\ProductController');
+Route::get('/products',[ProductController::class,'index'])-> name("admin.products.index");

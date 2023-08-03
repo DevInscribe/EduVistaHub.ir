@@ -178,7 +178,8 @@
                         </ul>
                     </li>
                    @endcan
-                   
+
+                   @can('show_products')
                     <li class="header">محصولات</li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
@@ -187,17 +188,19 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="javascript:void(0);">
+                                <a href="/admin/products">
                                     <span class="font-vazir">تمامي محصولات</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);">
+                                <a href="/admin/products/create">
                                     <span class="font-vazir">افزودن محصول جديد</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
+                    @endcan
+
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">category</i>
