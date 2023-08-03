@@ -8276,7 +8276,8 @@ table * {
   justify-content: flex-end;
   margin-top: 15px;
 }
-#add_new_user_section > form{
+#add_new_user_section > form,
+#add_new_role_section > form{
   flex-grow: 2;
 }
 #add_new_user_section > a {
