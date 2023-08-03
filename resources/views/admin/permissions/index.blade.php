@@ -7,6 +7,10 @@
                         <div class="header">
                             <h2>دسترسي ها</h2>
                             <div id="add_new_permission_section" class="d-flex justify-content-end">
+                                <form action="">
+                                    <input value="{{request('search')}}" type="search" name="search" id="search-input" placeholder="جست و جو در بين دسترسي ها ...">
+                                    <button id="search-btn" type="submit" class="btn btn-info "><i class="icon material-icons">search</i></button>
+                                </form>
                                 <a href="{{route('admin.permissions.create')}}" class="btn btn-warning d-inline-block">افزودن دسترسي جديد</a>  
                             </div>
                         </div>
