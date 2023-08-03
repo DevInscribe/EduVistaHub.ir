@@ -34,6 +34,9 @@
                                                     <button type="submit" class='btn btn-outline-primary btn-sm fw-bold'>حذف</button>
                                                 </form>
                                                 <a class="btn btn-primary btn-sm" href="{{route('admin.users.edit',$user->id)}}">ويرايش</a>
+                                                @if($user->isStaffUser())
+                                                    <a class="btn btn-info btn-sm" href="{{route('admin.users.permissions',$user->id)}}">دسترسي ها</a>
+                                                @endif
                                             </td>
                                         </tr>
                                         @endforeach

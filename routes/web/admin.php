@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\User\PermissionController as UserPermissionController;
 
 
 
@@ -19,6 +20,9 @@ Route::post('/users/store',[UserController::class,'store'])-> name("admin.users.
 Route::get('/users/{id}/edit/',[UserController::class,'edit'])-> name("admin.users.edit");
 Route::patch('/users/{id}/update',[UserController::class,'update'])-> name("admin.users.update");
 Route::delete('/users/{id}/destroy',[UserController::class,'destroy'])-> name('admin.users.destroy');
+
+Route::get('/users/{user}/permissions',[UserPermissionController::class,'create'])->name('admin.users.permissions');
+Route::post('/users/{user}/permissions',[UserPermissionController::class,'store'])->name('admin.users.permissions.store');
 
 
 Route::resource('/permissions','App\Http\Controllers\Admin\PermissionController');
