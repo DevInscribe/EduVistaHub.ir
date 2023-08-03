@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->boolean('is_superuser')->default(0);
             $table->boolean('is_staff')->default(0);
+            $table->boolean('is_member')->default(1);
             $table->string('email')->unique();
             $table->string('password');
             $table->string('img')->nullable();

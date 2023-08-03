@@ -21,8 +21,8 @@ Route::get('/users/{id}/edit/',[UserController::class,'edit'])-> name("admin.use
 Route::patch('/users/{id}/update',[UserController::class,'update'])-> name("admin.users.update");
 Route::delete('/users/{id}/destroy',[UserController::class,'destroy'])-> name('admin.users.destroy');
 
-Route::get('/users/{user}/permissions',[UserPermissionController::class,'create'])->name('admin.users.permissions')->middleware('can:staff_user_permission');
-Route::post('/users/{user}/permissions',[UserPermissionController::class,'store'])->name('admin.users.permissions.store')->middleware('can:staff_user_permission');;
+Route::get('/users/{user}/permissions',[UserPermissionController::class,'create'])->name('admin.users.permissions') ->middleware('can:staff_user_permissions');
+Route::post('/users/{user}/permissions',[UserPermissionController::class,'store'])->name('admin.users.permissions.store')->middleware('can:staff_user_permissions');
 
 
 Route::resource('/permissions','App\Http\Controllers\Admin\PermissionController');

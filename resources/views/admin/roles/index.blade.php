@@ -13,11 +13,12 @@
                                 </form>
                                 @can('create_role')
                                 <a href="{{route('admin.roles.create')}}" class="btn btn-warning d-inline-block">افزودن نقش جديد</a>  
-                                @endcan
+                               @endcan
                             </div>
                         </div>
                         <div class="body">
                         <div class="table-responsive">
+                            
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
@@ -34,13 +35,13 @@
                                             <td>{{$role->name}}</td>
                                             <td>{{$role->label}}</td>
                                             <td class="d-flex">
+                                            @can('delete_role')
                                                 <form method="post" action="{{route('admin.roles.destroy',$role->id)}}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    @can('delete_role')
                                                     <button type="submit" class='btn btn-outline-primary btn-sm fw-bold'>حذف</button>
-                                                    @endcan
                                                 </form>
+                                            @endcan
                                                 @can('edit_role')
                                                 <a class="btn btn-primary btn-sm" href="{{route('admin.roles.edit',$role->id)}}">ويرايش</a>
                                                 @endcan

@@ -2,6 +2,11 @@
 
 
 @section('content')
+<style>
+    .dropdown-toggle{
+        display: none;
+    }
+</style>
 
 <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -33,6 +38,32 @@
                                         <input name="password" type="password" class="form-control" id="cnu-input-pass" placeholder="حداقل 8 کاراکتر باشد">
                                     </div>
                                    
+                                    <div class="my-5">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="control-label" for="is_superuser">مدير سايت </label>
+                                                <select name="is_superuser" id="is_superuser">
+                                                    <option value="0"> ------ </option>
+                                                    <option value="1"
+                                                    @if($user->is_superuser == "1")
+                                                            selected
+                                                    @endif
+                                                    > مدير کل سايت</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="control-label" for="is_staff">همکار سايت</label>
+                                                <select name="is_staff" id="is_staff">
+                                                    <option value="0"> ------ </option>
+                                                    <option value="1"
+                                                    @if($user->is_staff == "1")
+                                                            selected
+                                                    @endif
+                                                    >همکار سايت</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <button type="submit" class="btn btn-primary mb-5">به روز رساني کاربر</button>
                             </form>

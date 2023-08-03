@@ -16,7 +16,7 @@ class UserController extends Controller
         $this->middleware('can:create_user')->only(['create']);
         $this->middleware('can:delete_user')->only(['destroy']);
         $this->middleware('can:edit_user')->only(['edit','update']);
-        $this->middleware('can:show_user')->only(['index']);
+        $this->middleware('can:show_users')->only(['index']);
     }
 
     /**
@@ -32,7 +32,7 @@ class UserController extends Controller
         }
 
         if(request('admin')){
-            $this->authorize('show_staff_user');
+            $this-> authorize ('show_staff_user');
             $users-> where('is_superuser',1)->orWhere('is_staff', 1);
         }
         
@@ -95,6 +95,9 @@ class UserController extends Controller
             'required',
             Rule::unique('users')->ignore($id)
         ],
+        'is_superuser' => 'string|boolean',
+        'is_staff' => ['string','boolean'],
+        'is_member' => ['string','boolean']
        ]);
        if(!is_null($request->password)){
            $request->validate([

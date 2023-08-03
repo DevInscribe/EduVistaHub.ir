@@ -12,9 +12,8 @@
                                     <button id="search-btn" type="submit" class="btn btn-info "><i class="icon material-icons">search</i></button>
                                 </form>
                                 <a href="{{request()->fullUrlWithQuery(['admin'=>1])}}" class="btn btn-info d-inline-block"> نمايش مديران</a>
-                                @can('create_user')
+                               
                                 <a href="{{route('admin.users.create')}}" class="btn btn-warning d-inline-block">افزودن کاربر جديد</a>
-                                @endcan
                             </div>
                         </div>
                         <div class="body">
@@ -25,6 +24,7 @@
                                             <th>شناسه</th>
                                             <th>نام و نام خانوادگي</th>
                                             <th>ايميل</th>
+                                            <th>نقش کاربر</th>
                                             <th>اقدامات</th>
                                         </tr>
                                     </thead>
@@ -34,6 +34,15 @@
                                             <td>{{$user->id}}</td>
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
+                                            <td>
+                                                @if($user->is_superuser == '1')
+                                                        مدير کل سايت
+                                                    @elseif($user->is_staff == '1')
+                                                            همکار سايت
+                                                        @elseif($user->is_member == '1')
+                                                            کاربر عادي
+                                                @endif
+                                            </td>
                                             <td class="d-flex">
                                                 <form method="post" action="{{route('admin.users.destroy',$user->id)}}">
                                                     @csrf
@@ -45,7 +54,7 @@
                                                 @can('edit_user')
                                                 <a class="btn btn-primary btn-sm" href="{{route('admin.users.edit',$user->id)}}">ويرايش</a>
                                                 @endcan
-                                                @if($user->isStaffUser())
+                                                @if($user->isStaffUser() || $user->isSuperUser())
                                                     <a class="btn btn-info btn-sm" href="{{route('admin.users.permissions',$user->id)}}">دسترسي ها</a>
                                                 @endif
                                             </td>
