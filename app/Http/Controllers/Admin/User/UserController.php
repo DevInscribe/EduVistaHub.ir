@@ -16,7 +16,17 @@ class UserController extends Controller
     public function index()
     {
         
-        $users = User::paginate(100);
+        $users = User::query();
+        if($keyword = request('search')){
+                $users-> where('email','like',"%$keyword%")->orWhere('name','like',"%$keyword%")
+                        ->orWhere('id',$keyword);
+        }
+
+        if(request('admin')){
+            $users-> where('is_superuser',1)->orWhere('is_staff', 1);
+        }
+
+        $users = $users->latest()->paginate(100);
         return view('admin.users.index',compact('users'));
     }
 

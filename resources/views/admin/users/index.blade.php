@@ -7,6 +7,11 @@
                         <div class="header">
                             <h2>کاربران</h2>
                             <div id="add_new_user_section" class="d-flex justify-content-end">
+                                <form action="">
+                                    <input value="{{request('search')}}" type="search" name="search" id="search-input" placeholder="جست و جو در بين کاربران ...">
+                                    <button id="search-btn" type="submit" class="btn btn-info "><i class="icon material-icons">search</i></button>
+                                </form>
+                                <a href="{{request()->fullUrlWithQuery(['admin'=>1])}}" class="btn btn-info d-inline-block"> نمايش مديران</a>
                                 <a href="{{route('admin.users.create')}}" class="btn btn-warning d-inline-block">افزودن کاربر جديد</a>
                             </div>
                         </div>

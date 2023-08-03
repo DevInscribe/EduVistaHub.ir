@@ -8274,6 +8274,13 @@ table * {
 #add_new_role_section{
   display: flex;
   justify-content: flex-end;
+  margin-top: 15px;
+}
+#add_new_user_section > form{
+  flex-grow: 2;
+}
+#add_new_user_section > a {
+  margin-left: 5px;
 }
 
 #nu_admin_form,
@@ -8316,4 +8323,17 @@ ul li {
 .bootstrap-select{
   border: none!important;
   outline: 0;
+}
+#search-input{
+  border: 1px solid #efefef;
+  border-radius:5px;
+  padding: 5px;
+  width: 60%;
+  padding-right: 10px;
+}
+
+#search-btn{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
