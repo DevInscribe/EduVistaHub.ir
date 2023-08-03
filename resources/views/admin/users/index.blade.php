@@ -12,7 +12,9 @@
                                     <button id="search-btn" type="submit" class="btn btn-info "><i class="icon material-icons">search</i></button>
                                 </form>
                                 <a href="{{request()->fullUrlWithQuery(['admin'=>1])}}" class="btn btn-info d-inline-block"> نمايش مديران</a>
+                                @can('create_user')
                                 <a href="{{route('admin.users.create')}}" class="btn btn-warning d-inline-block">افزودن کاربر جديد</a>
+                                @endcan
                             </div>
                         </div>
                         <div class="body">
@@ -36,9 +38,13 @@
                                                 <form method="post" action="{{route('admin.users.destroy',$user->id)}}">
                                                     @csrf
                                                     @method('DELETE')
+                                                    @can('delete_user')
                                                     <button type="submit" class='btn btn-outline-primary btn-sm fw-bold'>حذف</button>
+                                                    @endcan
                                                 </form>
+                                                @can('edit_user')
                                                 <a class="btn btn-primary btn-sm" href="{{route('admin.users.edit',$user->id)}}">ويرايش</a>
+                                                @endcan
                                                 @if($user->isStaffUser())
                                                     <a class="btn btn-info btn-sm" href="{{route('admin.users.permissions',$user->id)}}">دسترسي ها</a>
                                                 @endif

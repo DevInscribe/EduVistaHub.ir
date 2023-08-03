@@ -7,9 +7,18 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('can:create_user')->only(['create']);
+        $this->middleware('can:delete_user')->only(['destroy']);
+        $this->middleware('can:edit_user')->only(['edit','update']);
+        $this->middleware('can:show_user')->only(['index']);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -23,8 +32,19 @@ class UserController extends Controller
         }
 
         if(request('admin')){
+            $this->authorize('show_staff_user');
             $users-> where('is_superuser',1)->orWhere('is_staff', 1);
         }
+        
+        if(Gate::allows('show_staff_user')){
+            if(request('admin')){
+                $users-> where('is_superuser',1)->orWhere('is_staff', 1);
+            }else{
+                $users-> where('is_superuser',0)->orWhere('is_staff', 0);
+            }
+
+        }
+
 
         $users = $users->latest()->paginate(100);
         return view('admin.users.index',compact('users'));

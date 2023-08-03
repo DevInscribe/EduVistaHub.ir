@@ -11,7 +11,9 @@
                                     <input value="{{request('search')}}" type="search" name="search" id="search-input" placeholder="جست و جو در بين دسترسي ها ...">
                                     <button id="search-btn" type="submit" class="btn btn-info "><i class="icon material-icons">search</i></button>
                                 </form>
-                                <a href="{{route('admin.permissions.create')}}" class="btn btn-warning d-inline-block">افزودن دسترسي جديد</a>  
+                                @can('create_permissions') 
+                                    <a href="{{route('admin.permissions.create')}}" class="btn btn-warning d-inline-block">افزودن دسترسي جديد</a>  
+                                @endcan
                             </div>
                         </div>
                         <div class="body">
@@ -32,12 +34,16 @@
                                             <td>{{$per->name}}</td>
                                             <td>{{$per->label}}</td>
                                             <td class="d-flex">
+                                                @can('delete_permissions')
                                                 <form method="post" action="{{route('admin.permissions.destroy',$per->id)}}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class='btn btn-outline-primary btn-sm fw-bold'>حذف</button>
                                                 </form>
+                                                @endcan
+                                                @can('edit_permissions')
                                                 <a class="btn btn-primary btn-sm" href="{{route('admin.permissions.edit',$per->id)}}">ويرايش</a>
+                                                @endcan
                                             </td>
                                         </tr>
                                         @endforeach

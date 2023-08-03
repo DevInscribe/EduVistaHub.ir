@@ -9,6 +9,14 @@ use Illuminate\Validation\Rule;
 
 class RoleController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('can:create_role')->only(['create']);
+        $this->middleware('can:delete_role')->only(['destroy']);
+        $this->middleware('can:edit_role')->only(['edit','update']);
+        $this->middleware('can:show_roles')->only(['index']);
+    }
+
     /**
      * Display a listing of the resource.
      */

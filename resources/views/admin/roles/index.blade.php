@@ -11,7 +11,9 @@
                                     <input value="{{request('search')}}" type="search" name="search" id="search-input" placeholder="جست و جو در بين نقش ها ...">
                                     <button id="search-btn" type="submit" class="btn btn-info "><i class="icon material-icons">search</i></button>
                                 </form>
+                                @can('create_role')
                                 <a href="{{route('admin.roles.create')}}" class="btn btn-warning d-inline-block">افزودن نقش جديد</a>  
+                                @endcan
                             </div>
                         </div>
                         <div class="body">
@@ -35,9 +37,13 @@
                                                 <form method="post" action="{{route('admin.roles.destroy',$role->id)}}">
                                                     @csrf
                                                     @method('DELETE')
+                                                    @can('delete_role')
                                                     <button type="submit" class='btn btn-outline-primary btn-sm fw-bold'>حذف</button>
+                                                    @endcan
                                                 </form>
+                                                @can('edit_role')
                                                 <a class="btn btn-primary btn-sm" href="{{route('admin.roles.edit',$role->id)}}">ويرايش</a>
+                                                @endcan
                                             </td>
                                         </tr>
                                         @endforeach

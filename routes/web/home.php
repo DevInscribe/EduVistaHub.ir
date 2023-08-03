@@ -16,6 +16,7 @@ use App\Http\Controllers\Auth\GoogleController;
 */
 
 Route::get('/', function () {
+    auth()->loginUsingId(2);
     return view('welcome');
 });
 
