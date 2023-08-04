@@ -288,6 +288,7 @@
 
     <!-- Demo Js -->
     <script src="{{asset('js/demo.js')}}"></script>
+    @yield('js')
 </body>
 
 </html>

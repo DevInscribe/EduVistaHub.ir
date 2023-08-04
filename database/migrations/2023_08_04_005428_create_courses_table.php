@@ -24,7 +24,7 @@ return new class extends Migration
             $table-> string('price',50);
             $table-> string('tags');
             $table-> text('images') -> nullable();
-            $table-> string('videos') -> nullable();
+            $table-> text('videos') -> nullable();
             $table-> string('time',15)-> default('00:00:00');
             $table-> string('view_count')-> default(0);
             $table-> string('comment_count')-> default(0);

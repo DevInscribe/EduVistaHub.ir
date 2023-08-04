@@ -1,8 +1,21 @@
 @extends("layouts.admin")
 
 
-@section('content')
+@section('js')
+    <script src="{{asset('/ckeditor/ckeditor.js')}}"></script>
 
+    <script>
+        CKEDITOR.replace('cnc-input-body',{
+            filebrowserUploadMethod : 'form',
+            filebrowserUploadUrl: '/admin/panel/upload-image',
+            filebrowserImageUploadUrl: '/admin/panel/upload-image',
+        });
+    </script>
+
+
+@endsection
+
+@section('content')
 
 
 <div class="row clearfix">
