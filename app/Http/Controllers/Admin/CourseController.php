@@ -44,11 +44,6 @@ class CourseController extends AdminController
      * Store a newly created resource in storage.
      */
 
-    // public function store(Request $request)
-    // {
-        //
-    // }
-
     public function store(CourseRequest $request)
     {
         $imageUrl = $this->uploadImages($request->file('images'));

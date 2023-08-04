@@ -13,7 +13,7 @@
                             </div>
                         </div>
                             @include('errors.errors')
-                            <form  id="nc_admin_form" class="w-50 mx-auto" action="{{route('admin.courses.update',$course->id)}}" method="POST" >
+                            <form  id="nc_admin_form" class="w-50 mx-auto" action="{{route('admin.courses.update',$course->id)}}" method="POST" enctype="multipart/form-data" >
                                     @csrf
 
                                     @method('PATCH')
@@ -52,6 +52,11 @@
                                                 <input name="price" type="text" class="form-control" id="cnc-input-price" value="{{$course->price}}" placeholder="به ريال" autofocus>
                                             </div>
                                         </div>
+                                    </div>
+                                                                     
+                                    <div class="mb-3">
+                                        <label for="cnc-input-image" class="form-label">تصوير دوره</label>
+                                        <input name="images" type="file" class="form-control " id="cnc-input-image" value="{{old('images')}}" >
                                     </div>
                                     
                                     <div class="mb-3">
