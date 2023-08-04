@@ -76,9 +76,29 @@ class CourseController extends AdminController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, string $id)
     {
-        //
+        $course = Course::find($id);
+        $file = $request->file('images');
+
+        $inputs = $request->all();
+        if ($file){
+            $inputs['images'] = $this->uploadImages($request->file('images'));
+        }else
+        {
+            $inputs['images'] = $course->images;
+            $inputs['images']['thumb'] =$inputs['imageThumb'];
+        }
+
+        unset($inputs['imageThumb']);
+
+         
+         $course->update($inputs);
+        // $teachers = Teacher::all();
+//        $teachers->where("user_id",$request->input('user_id'))->update($request->all());
+
+        // alert()->message( 'دوره شما با موفقیت آپدیت شد!')->persistent('بستن');
+        return redirect(route('admin.courses.index'));
     }
 
     /**

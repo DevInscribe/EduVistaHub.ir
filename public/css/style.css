@@ -1,6 +1,5 @@
 ﻿/* Navbar ====================================== */
 
-@import url(materialize.css);
 *{
   font-family: Vazirmatn, sans-serif;
 }
@@ -2712,7 +2711,8 @@ table * {
 #add_new_user_section,
 #add_new_permission_section,
 #add_new_role_section,
-#add_new_course_section{
+#add_new_course_section
+{
   display: flex;
   justify-content: flex-end;
   margin-top: 15px;
@@ -2806,4 +2806,36 @@ ul li {
 }
 .w-25{
   width: 25%;
+}
+
+img{
+  max-width:100%;
+  height:auto
+}
+.mt-4{
+  margin-top: 20px;
+}
+
+#nc_admin_form{
+  width: 80%;
+
+}
+#nc_admin_form img {
+  object-fit: fill;
+  display: block;
+  width: 100%;
+}
+
+.text-center{
+  text-align: center;
+}
+[type="radio"]:not(:checked) + label, [type="radio"]:checked + label{
+  padding-left: 0;
+  height: auto;
+  line-height: 0;
+}
+#c-img-caption{
+  font-size: 13px;
+  text-align: center;
+  display: block;
 }
