@@ -179,22 +179,22 @@
                     </li>
                    @endcan
 
-                   @can('show_products')
+                   @can('show_courses')
                     <li class="header">محصولات</li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">store</i>
-                            <span class="font-vazir">محصولات</span>
+                            <span class="font-vazir">دوره ها</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="/admin/products">
-                                    <span class="font-vazir">تمامي محصولات</span>
+                                <a href="/admin/courses">
+                                    <span class="font-vazir">تمامي دوره ها</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/admin/products/create">
-                                    <span class="font-vazir">افزودن محصول جديد</span>
+                                <a href="/admin/courses/create">
+                                    <span class="font-vazir">افزودن دوره جديد</span>
                                 </a>
                             </li>
                         </ul>

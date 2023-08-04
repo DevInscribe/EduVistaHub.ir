@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\Admin\ProductController';
+use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\User\PermissionController as UserPermissionController;
 
 
@@ -44,5 +44,10 @@ Route::post('/roles/store',[RoleController::class,'store'])-> name("admin.roles.
 Route::patch('/roles/{id}/update',[RoleController::class,'update'])-> name("admin.roles.update");
 
 // products
-Route::resource('/products','App\Http\Controllers\Admin\ProductController');
-Route::get('/products',[ProductController::class,'index'])-> name("admin.products.index");
+Route::resource('/courses','App\Http\Controllers\Admin\CourseController');
+Route::get('/courses',[CourseController::class,'index'])-> name("admin.courses.index");
+Route::get('/courses/create',[CourseController::class,'create'])-> name("admin.courses.create");
+Route::delete('/courses/{id}/destroy',[CourseController::class,'destroy'])-> name('admin.courses.destroy');
+Route::get('/courses/{id}/edit/',[CourseController::class,'edit'])-> name("admin.courses.edit");
+Route::post('/courses/store',[CourseController::class,'store'])-> name("admin.courses.store");
+Route::patch('/courses/{id}/update',[CourseController::class,'update'])-> name("admin.courses.update");

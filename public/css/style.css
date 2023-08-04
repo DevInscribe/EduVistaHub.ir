@@ -8271,14 +8271,16 @@ table * {
 }
 #add_new_user_section,
 #add_new_permission_section,
-#add_new_role_section{
+#add_new_role_section,
+#add_new_course_section{
   display: flex;
   justify-content: flex-end;
   margin-top: 15px;
 }
 #add_new_user_section > form,
 #add_new_role_section > form,
-#add_new_permission_section > form{
+#add_new_permission_section > form,
+#add_new_course_section form{
   flex-grow: 2;
 }
 #add_new_user_section > a {
@@ -8287,7 +8289,8 @@ table * {
 
 #nu_admin_form,
 #np_admin_form,
-#nr_admin_form{
+#nr_admin_form,
+#nc_admin_form{
   width: 40%;
   margin: 40px auto;
   color: #232323;
@@ -8295,12 +8298,14 @@ table * {
 
 #nu_admin_form button,
 #np_admin_form button,
-#nr_admin_form button{
+#nr_admin_form button,
+#nc_admin_form button{
   margin: 20px 0 30px 0;
 }
 #nu_admin_form label,
 #np_admin_form label,
-#nr_admin_form label{
+#nr_admin_form label,
+#nc_admin_form label{
   margin: 15px 0;
 }
 
@@ -8312,14 +8317,21 @@ ul li {
   font-weight: bold;
 }
 
-#permission-select-wrapp{
+#permission-select-wrapp,
+#select-course-type-wrap,
+#course-type-wrap{
   display: flex;
   flex-direction: column;
 }
-#permission-select-wrapp select{
+#course-type-wrap textarea{
   width: 100%;
 }
-#permission-select-wrapp .dropdown-toggle{
+#permission-select-wrapp select,
+#select-course-type-wrap select{
+  width: 100%;
+}
+#permission-select-wrapp .dropdown-toggle,
+#select-course-type-wrap .dropdown-toggle{
   display: none;
 }
 .bootstrap-select{

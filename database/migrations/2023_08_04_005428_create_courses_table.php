@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('courses', function (Blueprint $table) {
             $table-> id();
             $table-> bigInteger('user_id')->unsigned()-> index()-> nullable();
             $table-> foreign('user_id') -> references('id') 
@@ -19,8 +19,10 @@ return new class extends Migration
                                        -> onDelete('cascade');
             $table-> string('title');
             $table-> string('slug');
+            $table-> string('type',10);
             $table-> text('body');
             $table-> string('price',50);
+            $table-> string('tags');
             $table-> string('images') -> nullable();
             $table-> string('videos') -> nullable();
             $table-> string('time',15)-> default('00:00:00');
@@ -36,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('courses');
     }
 };
