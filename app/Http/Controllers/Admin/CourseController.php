@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use App\Http\Requests\CourseRequest;
 
-class CourseController extends Controller
+class CourseController extends AdminController
 {
 
     public function __construct(){
@@ -42,9 +43,17 @@ class CourseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
+
+    // public function store(Request $request)
+    // {
         //
+    // }
+
+    public function store(CourseRequest $request)
+    {
+        $imageUrl = $this->uploadImages($request->file('images'));
+        auth()->user()->course()->create(array_merge($request->all() , ['images'=>$imageUrl]));  
+        return redirect(url('/admin/courses'));
     }
 
     /**

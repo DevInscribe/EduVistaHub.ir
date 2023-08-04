@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    use HasFactory;
+    protected $fillable = ['title', 'type', 'slug', 'body', 'price','tags','images','videos','time','view_count', 'comment_count'];
+
+    protected $casts = [
+        'images' => 'array'
+    ];
 }

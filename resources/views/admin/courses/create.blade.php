@@ -3,11 +3,6 @@
 
 @section('content')
 
-<style>
-    .dropdown-toggle{
-        display: none;
-    }
-</style>
 
 
 <div class="row clearfix">
@@ -35,7 +30,7 @@
                                     
                                     <div id="course-type-wrap" class="mb-3">
                                         <label for="cnc-input-body" class="form-label">توضيحات دوره</label>
-                                        <textarea name="body" id="cnc-input-body" cols="30" rows="10"></textarea>
+                                        <textarea name="body" id="cnc-input-body" cols="30" rows="10" placeholder="توضيحات دوره"></textarea>
                                     </div>
                                     
                                     <div class="mb-3">
@@ -71,7 +66,7 @@
                                     </div>
                                                                     
 
-                                    <button type="submit" class="btn btn-primary mb-5">ايجاد دسترسي جديد</button>
+                                    <button type="submit" class="btn btn-primary mb-5">ايجاد دوره جديد</button>
                             </form>
                             
                     </div>

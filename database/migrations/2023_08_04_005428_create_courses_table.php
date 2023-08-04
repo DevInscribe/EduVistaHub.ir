@@ -23,7 +23,7 @@ return new class extends Migration
             $table-> text('body');
             $table-> string('price',50);
             $table-> string('tags');
-            $table-> string('images') -> nullable();
+            $table-> text('images') -> nullable();
             $table-> string('videos') -> nullable();
             $table-> string('time',15)-> default('00:00:00');
             $table-> string('view_count')-> default(0);

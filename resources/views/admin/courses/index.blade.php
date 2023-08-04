@@ -32,8 +32,11 @@
                                     <tbody>
                                         @foreach($courses as $course)
                                         <tr>
+                                            <div class="row">
+
+                                            </div>
                                             <td>{{$course->id}}</td>
-                                            <td>{{$course->title}}</td>
+                                            <td class="w-25">{{$course->title}}</td>
                                             <td>{{$course->comment_count}}</td>
                                             <td>{{$course->view_count}}</td>
                                             <td>
