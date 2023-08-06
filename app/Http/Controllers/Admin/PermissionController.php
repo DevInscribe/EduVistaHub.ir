@@ -59,6 +59,7 @@ class PermissionController extends Controller
             // 'g-recaptcha-response'=> ['required',new Recaptcha()]
         ]);
         Permission::create($request->all());
+        alert()->success('موفقيت آميز', " دسترسي '{$request->all()["name"]}' با موفقيت ايجاد شد")->persistent(true);
         return redirect(route('admin.permissions.index'));
     }
 
@@ -97,7 +98,7 @@ class PermissionController extends Controller
            $permission = Permission::find($id);
            $permission->update($data);
            $permission->save();
-
+           alert()->success('موفقيت آميز', " دسترسي '{$request->all()["name"]}' با موفقيت به روز رساني شد")->persistent(true);
            return redirect(route('admin.permissions.index'));
     }
 

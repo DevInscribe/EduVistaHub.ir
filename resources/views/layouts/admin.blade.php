@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    
     @yield('head')
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -35,6 +36,7 @@
 </head>
 
 <body class="theme-red">
+    @include('sweetalert::alert')
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
@@ -80,7 +82,7 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="images/user.jpg" width="48" height="48" alt="User" />
+                    <img src="{{asset('images/user.jpg')}}" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">مدير محترم سايت</div>
@@ -265,6 +267,7 @@
 
     <section class="content">
         <div class="container-fluid">
+                
                 @yield("content")
         </div>
     </section>
@@ -309,6 +312,7 @@
     <script src="{{asset('js/pages/index.js')}}"></script>
 
     <!-- Demo Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{asset('js/demo.js')}}"></script>
     @yield('js')
 </body>

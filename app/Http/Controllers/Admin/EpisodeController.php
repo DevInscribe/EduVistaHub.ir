@@ -54,6 +54,8 @@ class EpisodeController extends AdminController
 
         $this->setCourseTime($episodes);
 
+        alert()->success('موفقيت آميز', " ويديو '{$request->all()["title"]}' با موفقيت منتشر شد")->persistent(true);
+
         return redirect(url('/admin/episodes'));
     }
 
@@ -89,6 +91,8 @@ class EpisodeController extends AdminController
 
         $episode->update($inputs);
         $this->setCourseTime($episode);
+
+        alert()->success('موفقيت آميز', " ويديو '{$request->all()["title"]}' با موفقيت به روز رساني شد")->persistent(true);
 
         return redirect(route('admin.episodes.index'));
     }

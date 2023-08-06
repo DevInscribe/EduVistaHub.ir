@@ -11,6 +11,7 @@ class AdminController extends Controller
 {
     public function index()
     {
+        alert()->info('سلام','به پنل ادمين خوش آمديد');
         return view('admin.index');
     }
 

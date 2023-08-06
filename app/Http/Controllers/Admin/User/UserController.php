@@ -64,6 +64,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         User::create($request->all());
+        alert()->success('موفقيت آميز', " کاربر '{$request->all()["name"]}' با موفقيت ايجاد شد")->persistent(true);
         return redirect(route('admin.users.index'));
     }
 
@@ -110,6 +111,7 @@ class UserController extends Controller
        $user-> update($data);
        $user-> save();
 
+       alert()->success('موفقيت آميز', " کاربر '{$request->all()["name"]}' با موفقيت به روز رساني شد")->persistent(true);
        return redirect(route('admin.users.index'));
     }
 

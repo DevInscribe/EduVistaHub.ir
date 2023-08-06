@@ -2804,3 +2804,7 @@ img{
   text-align: center;
   display: block;
 }
+
+.swal2-select{
+display: none;
+}

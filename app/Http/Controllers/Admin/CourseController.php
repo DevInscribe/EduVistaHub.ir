@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use App\Http\Requests\CourseRequest;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class CourseController extends AdminController
 {
@@ -29,6 +31,9 @@ class CourseController extends AdminController
         }
 
         $courses = $courses->latest()->paginate(100);
+
+        // confirmDelete('Delete User!', "Are you sure you want to delete?");
+
         return view('admin.courses.index',compact('courses'));
     }
 
@@ -48,6 +53,7 @@ class CourseController extends AdminController
     {
         $imageUrl = $this->uploadImages($request->file('images'));
         auth()->user()->course()->create(array_merge($request->all() , ['images'=>$imageUrl]));  
+        alert()->success('موفقيت آميز', " دوره '{$request->all()["title"]}' با موفقيت ايجاد شد")->persistent(true);
         return redirect(url('/admin/courses'));
     }
 
@@ -92,7 +98,7 @@ class CourseController extends AdminController
         // $teachers = Teacher::all();
 //        $teachers->where("user_id",$request->input('user_id'))->update($request->all());
 
-        // alert()->message( 'دوره شما با موفقیت آپدیت شد!')->persistent('بستن');
+        alert()->success('موفقيت آميز', " دوره '{$request->all()["title"]}' با موفقيت آپديت شد")->persistent(true);
         return redirect(route('admin.courses.index'));
     }
 

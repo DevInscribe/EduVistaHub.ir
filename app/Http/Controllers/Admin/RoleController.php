@@ -64,7 +64,7 @@ class RoleController extends Controller
 
         $role = Role::create($data);
         $role->permissions()->sync($data['permissions']);
-
+        alert()->success('موفقيت آميز', " نقش '{$request->all()["name"]}' با موفقيت ايجاد شد")->persistent(true);
         return redirect(route('admin.roles.index'));
     }
 
@@ -109,7 +109,7 @@ class RoleController extends Controller
            $role->update($data);
            $role->permissions()->sync($data['permissions']);
            $role->save();
-
+           alert()->success('موفقيت آميز', " نقش '{$request->all()["name"]}' با موفقيت به روز رساني شد")->persistent(true);
            return redirect(route('admin.roles.index'));
     }
 

@@ -57,11 +57,11 @@
                                             <td class="d-flex">
 
                                                 @can('delete_course')
-                                                <form method="post" action="{{route('admin.courses.destroy',$course->id)}}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class='btn btn-outline-primary btn-sm fw-bold'>حذف</button>
-                                                </form>
+                                                    <form  method="post" action="{{route('admin.courses.destroy',$course->id)}}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button data-confirm-delete="true" type="submit" class='btn btn-outline-primary btn-sm fw-bold'>حذف</button>
+                                                    </form>
                                                 @endcan
 
                                                 @can('edit_course')
