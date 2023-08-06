@@ -12,7 +12,9 @@
                                     <button id="search-btn" type="submit" class="btn btn-info "><i class="icon material-icons">search</i></button>
                                 </form>
                                 @can('create_course')
-                                <a href="{{route('admin.courses.create')}}" class="btn btn-warning d-inline-block">افزودن دوره جديد</a>  
+                                <a href="{{route('admin.episodes.index')}}" class="btn btn-info" style="margin-left: 5px">
+                                  بخش ویدیوها</a>
+                                <a href="{{route('admin.courses.create')}}" class="btn btn-warning ">افزودن دوره جديد</a>  
                                 @endcan    
                             </div>
                         </div>
@@ -23,6 +25,8 @@
                                         <tr>
                                             <th>شناسه</th>
                                             <th>عنوان دوره</th>
+                                            <th>قيمت دوره</th>
+                                            <th>تعداد شرکت کنندگان</th>
                                             <th>تعداد نظرات</th>
                                             <th>مقدار بازديد</th>
                                             <th>وضعيت دوره</th>
@@ -37,10 +41,18 @@
                                             </div>
                                             <td>{{$course->id}}</td>
                                             <td class="w-25">{{$course->title}}</td>
+                                            <td> {{$course->price}} ريال </td>
+                                            <td></td>
                                             <td>{{$course->comment_count}}</td>
                                             <td>{{$course->view_count}}</td>
                                             <td>
-
+                                                @if($course->type == "vip")
+                                                        عضويت ويژه
+                                                    @elseif($course->type == "cash")
+                                                        نقدي
+                                                    @else 
+                                                        رايگان
+                                                @endif
                                             </td>
                                             <td class="d-flex">
 

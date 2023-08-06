@@ -2673,7 +2673,8 @@ table * {
 #add_new_user_section,
 #add_new_permission_section,
 #add_new_role_section,
-#add_new_course_section
+#add_new_course_section,
+#add_new_episode_section
 {
   display: flex;
   justify-content: flex-end;
@@ -2682,10 +2683,12 @@ table * {
 #add_new_user_section > form,
 #add_new_role_section > form,
 #add_new_permission_section > form,
-#add_new_course_section form{
+#add_new_course_section form,
+#add_new_episode_section form{
   flex-grow: 2;
 }
-#add_new_user_section > a {
+#add_new_user_section > a,
+#add_new_episode_section > a {
   margin-left: 5px;
 }
 

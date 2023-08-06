@@ -1,17 +1,23 @@
 @extends("layouts.admin")
 
+@section('head')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
+
 @section('js')
-    <script src="{{asset('/ckeditor/ckeditor.js')}}"></script>
+    <!-- <script src="{{asset('/ckeditor/ckeditor.js')}}"></script> -->
+    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 
     <script>
         CKEDITOR.replace('cnc-input-body',{
             filebrowserUploadMethod : 'form',
-            filebrowserUploadUrl: '/admin/panel/upload-image',
+            filebrowserUploadUrl: "{{route('ckeditor.upload', csrf_token())}}",
             filebrowserImageUploadUrl: '/admin/panel/upload-image',
         });
     </script>
 
 @endsection
+
 
 @section('content')
 

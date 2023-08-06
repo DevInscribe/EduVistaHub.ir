@@ -138,7 +138,7 @@ return array(
         "price" => "قیمت",
         "tags" => "تگ",
         "comment" => "کامنت",
-        "number " => "عدد",
+        "number" => "عدد",
         "lable"=> "توضيحات"
     ),
 );

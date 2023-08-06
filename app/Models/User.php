@@ -4,6 +4,7 @@ namespace App\Models;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\Course;
+use App\Models\Episode;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -96,6 +97,9 @@ class User extends Authenticatable
 
     public function course(){
         return $this->hasMany(Course::class);
+    }
+    public function episode(){
+        return $this->hasMany(Episode::class);
     }
 
 }

@@ -4,22 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Episode;
 
-class Course extends Model
+class Episode extends Model
 {
-    protected $fillable = ['title', 'type', 'slug', 'body', 'price','tags','images','videos','time','view_count', 'comment_count'];
+    protected $fillable = ['course_id','title', 'type', 'slug', 'body', 'videoUrl', 'tags', 'download_count', 'videos', 'time', 'view_count', 'comment_count', 'number'];
 
-    protected $casts = [
-        'images' => 'array'
-    ];
-
-   
-    public function episode()
+    public function course()
     {
-        return $this->hasMany(Episode::class);
+        return $this->belongsTo(Course::class);
     }
 
+    protected $casts = [
+        'videos'=>'array'
+    ];
 
     public function download()
     {

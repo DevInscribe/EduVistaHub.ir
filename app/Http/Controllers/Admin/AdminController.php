@@ -50,7 +50,7 @@ class AdminController extends Controller
         $videoPath = "/upload/videos/{$year}/{$month}/";
         $filename = $file->getClientOriginalName();
 
-         $file->move(public_path($videoPath), $filename);
+        $file-> move(public_path($videoPath), $filename);
         $file = $videoPath . $filename;
         return $file;
     }

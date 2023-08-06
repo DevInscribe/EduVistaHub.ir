@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    @yield('head')
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -161,7 +162,7 @@
                     @can('show_roles')
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">handshake</i>
+                            <i class="material-icons">work</i>
                             <span class="font-vazir">نقش هاي کاربري</span>
                         </a>
                         <ul class="ml-menu">
@@ -195,6 +196,27 @@
                             <li>
                                 <a href="/admin/courses/create">
                                     <span class="font-vazir">افزودن دوره جديد</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endcan
+
+                   @can('show_episodes')
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">movie</i>
+                            <span class="font-vazir"> ويديو هاي دوره ها</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="/admin/episodes">
+                                    <span class="font-vazir">تمامي ويديو ها</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/admin/episodes/create">
+                                    <span class="font-vazir">افزودن ويديو جديد</span>
                                 </a>
                             </li>
                         </ul>
